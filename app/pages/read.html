@@ -1,0 +1,79 @@
+<div class="container">
+    <div class="box">
+        <a href="/">
+            <h1 class="title sub-heading has-text-grey-light is-size-3-mobile">{{main.query}} Movies</h1>
+        </a>
+        <div>
+            <p class="is-size-6 has-text-grey" style="padding-top: 10px; margin-bottom: 0px;">
+                {{main.resultsLength}} Results
+            </p>
+            <p class="is-size-5 has-text-grey-light">
+                Sort By:
+                <a class="sort" ng-click="main.sortBy('rating')" ng-class="{'has-text-success' :main.propertyName === 'rating'}"><i class="fas fa-sort-amount-down"
+                        ng-show="main.propertyName === 'rating' && main.reverse"></i> <i class="fas fa-sort-amount-up"
+                        ng-show="main.propertyName === 'rating' && !main.reverse"></i>Rating</a>
+                <a class="sort" ng-click="main.sortBy('price')" ng-class="{'has-text-success': main.propertyName === 'price'}"><i class="fas fa-sort-amount-down"
+                        ng-show="main.propertyName === 'price' && main.reverse"></i> <i class="fas fa-sort-amount-up"
+                        ng-show="main.propertyName === 'price' && !main.reverse"></i>Price</a>
+                <a class="sort" ng-click="main.sortBy('title')" ng-class="{'has-text-success': main.propertyName === 'title'}"><i class="fas fa-sort-amount-down"
+                        ng-show="main.propertyName === 'title' && main.reverse"></i> <i class="fas fa-sort-amount-up"
+                        ng-show="main.propertyName === 'title' && !main.reverse"></i>Title</a>
+            </p>
+            <hr class="has-background-grey " style="margin: 10px 0px;">
+            <!-- <div style="font-family:Verdana, Geneva, Tahoma, sans-serif" ng-repeat="result in search.results">
+                <div class="columns is-mobile">
+                    <div class="column is-three-quarters">
+                        <h1 class="has-text-link is-size-5 ">{{result._source.title}}</h1>
+                        <p class="has-text-success"><a href="{{result._source.url}}"
+                                target="_blank">{{result._source.url}}</a>
+                        </p>
+                        <p class="has-text-grey-dark">{{result._source.tests[0].name}},
+                            {{result._source.tests[1].name}},
+                            {{result._source.tests[2].name}}</p>
+                        <p class="has-text-grey-dark">
+                            <span style="padding-right:2%;">Patient</span>
+                            <span style="padding-right:2%;">• {{result._source.patient.gender}}</span>
+                            <span style="padding-right:2%;">• {{result._source.patient.age}}</span>
+                        </p>
+                        <p>
+                            <span class="has-text-grey" style="margin-right:10%">Created By:
+                                {{result._source.author}}</span>
+                            <span class="has-text-grey">Date Created: 25/02/19</span>
+                        </p>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+        <div class="table-container" style="font-family:GoogleSans">
+
+            <table class="table is-fullwidth" style="background:transparent">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="result in main.results | orderBy:main.propertyName:main.reverse">
+                        <td>
+                            <h1 class="is-size-2 is-size-4-mobile has-text-white-ter">{{result.title}}</h1>
+
+
+                            <p class="has-text-info is-size-6  is-size-7-mobile">{{result.genre}}</p>
+                            <p class="has-text-success is-size-6 is-size-7-mobile"><i class="fas fa-star"></i>
+                                {{result.rating}} </p>
+                        </td>
+                        <td>
+                            <h2 class="is-size-3 has-text-grey is-size-5-mobile">{{result.where}}</h2>
+
+                            <p class="has-text-primary is-size-5 is-size-6-mobile">Rs. {{result.price}} per ticket</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,38 @@
+<div class="container has-text-centered">
+    <div class="columns is-8 is-variable">
+        <div class="column is-two-thirds has-text-left">
+            <h1 class="title logo flicker-2 is-size-2-mobile">
+                Movies
+            </h1>
+            <div>
+                <h2 class="sub-title sub-heading is-size-3-mobile">Select Genre:</h2>
+                <div class="form-group">
+                    <button class="button custoButton is-white is-outlined" ng-repeat="genre in main.movieGenres"
+                        ng-click="main.getMoviesByGenre(genre)">{{genre}}</button>
+                </div>
+            </div>
+            <div>
+                <h2 class="sub-title sub-heading is-size-3-mobile">or Select Movie:</h2>
+                <div class="form-group">
+                    <button class="button custoButton is-info is-outlined is-size-6-mobile"
+                        ng-repeat="movieTitle in main.movieTitles"
+                        ng-click="main.getMoviesByTitle(movieTitle.title)">{{movieTitle.title}}</button>
+
+                </div>
+
+            </div>
+            <div>
+                <a ng-click="main.getAllMovies()">
+                    <h2 class="sub-title sub-heading is-size-3-mobile">or Show All</h2>
+                </a>
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+
+</div>
